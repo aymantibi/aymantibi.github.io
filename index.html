@@ -7,50 +7,67 @@
 <style>
   body {
     font-family: "Georgia", "Times New Roman", serif;
-    max-width: 760px;
-    margin: 50px auto;
+    max-width: 900px;
+    margin: 60px auto;
     padding: 0 20px;
     color: #2f2f2f;
     background: #fafafa;
     line-height: 1.7;
   }
 
-  img {
-    display: block;
-    max-width: 160px;
-    border-radius: 50%;
-    margin: 0 auto 20px;
+  .top-section {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+  }
+
+  .top-section img {
+    width: 220px;
+    height: auto;
+    border-radius: 10px;
     border: 2px solid #e1e1e1;
+    object-fit: cover;
   }
 
-  .name-container {
-    text-align: center;
-    margin-bottom: 10px;
+  .intro {
+    flex: 1;
+    min-width: 260px;
   }
 
-  .name-container h1 {
-    font-size: 2.1rem;
+  .intro h1 {
+    font-size: 2.3rem;
     margin: 0;
     color: #1a1a1a;
   }
 
-  .name-container span {
-    display: block;
-    font-size: 1.3rem;
+  .intro span {
+    display: inline-block;
+    font-size: 1.4rem;
     color: #555;
-    margin-top: 4px;
+    margin-left: 10px;
   }
 
-  h3 {
-    text-align: center;
+  .intro h3 {
     font-weight: normal;
     color: #555;
-    margin: 10px 0 25px;
+    margin: 10px 0 15px;
     font-size: 1.05rem;
   }
 
-  p, li {
+  .intro p {
+    margin: 8px 0;
     font-size: 1.05rem;
+  }
+
+  .links a {
+    color: #0044cc;
+    text-decoration: none;
+  }
+
+  .links a:hover {
+    text-decoration: underline;
   }
 
   h2 {
@@ -61,14 +78,6 @@
     font-size: 1.3rem;
   }
 
-  a {
-    color: #0044cc;
-    text-decoration: none;
-  }
-  a:hover {
-    text-decoration: underline;
-  }
-
   ul {
     list-style-type: disc;
     padding-left: 20px;
@@ -77,6 +86,7 @@
 
   li {
     margin-bottom: 14px;
+    font-size: 1.05rem;
   }
 
   details summary {
@@ -89,18 +99,7 @@
   details p {
     margin-top: 8px;
     font-size: 0.95rem;
-    line-height: 1.5;
     color: #444;
-  }
-
-  .center-links {
-    text-align: center;
-    margin: 20px 0;
-    font-size: 1.05rem;
-  }
-
-  .center-links a {
-    margin: 0 6px;
   }
 
   footer {
@@ -111,27 +110,43 @@
     border-top: 1px solid #e0e0e0;
     padding-top: 12px;
   }
+
+  @media (max-width: 700px) {
+    .top-section {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .intro span {
+      display: block;
+      margin-left: 0;
+      margin-top: 4px;
+    }
+    .top-section img {
+      width: 180px;
+      margin-bottom: 15px;
+    }
+  }
 </style>
 </head>
 <body>
 
-<img src="Ayman2.jpeg" alt="Ayman Tibi">
+<div class="top-section">
+  <img src="Ayman2.jpeg" alt="Ayman Tibi">
+  <div class="intro">
+    <h1>Ayman Tibi <span>أيمن الطّيبي</span></h1>
+    <h3>PhD Student in Economics · University of Mannheim</h3>
 
-<div class="name-container">
-  <h1>Ayman Tibi</h1>
-  <span>أيمن الطّيبي</span>
+    <p class="links">
+      Email: <a href="mailto:atibi@mail.uni-mannheim.de">atibi@mail.uni-mannheim.de</a> · 
+      <a href="https://x.com/TibiAyman" target="_blank">X (Twitter)</a>
+    </p>
+
+    <p>
+      Welcome! I am a PhD student in Economics at the University of Mannheim. My research interests lie in development economics, public economics, trade, and political economy.
+    </p>
+  </div>
 </div>
-
-<h3>PhD Student in Economics · University of Mannheim</h3>
-
-<div class="center-links">
-  Email: <a href="mailto:atibi@mail.uni-mannheim.de">atibi@mail.uni-mannheim.de</a> ·
-  <a href="https://x.com/TibiAyman" target="_blank">X (Twitter)</a>
-</div>
-
-<p>
-  Welcome! I am a PhD student in Economics at the University of Mannheim. My research interests lie in development economics, public economics, trade, and political economy.
-</p>
 
 <h2><a href="CV___Ayman_Tibi (6).pdf" target="_blank">Curriculum Vitae</a></h2>
 
