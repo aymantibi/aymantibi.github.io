@@ -15,7 +15,6 @@
     }
 
     * { box-sizing: border-box; }
-
     html { scroll-behavior: smooth; }
 
     body {
@@ -70,8 +69,26 @@
       font-size: 1rem;
     }
 
-    .nav a {
+    .nav button {
+      background: none;
+      border: none;
+      padding: 0;
+      margin: 0;
+      font: inherit;
+      color: var(--link);
       cursor: pointer;
+    }
+
+    .nav button:hover {
+      text-decoration: underline;
+    }
+
+    .view {
+      display: none;
+    }
+
+    .view.active {
+      display: block;
     }
 
     .hero {
@@ -161,15 +178,6 @@
       font-size: 0.98rem;
     }
 
-    .hidden-section {
-      display: none;
-      margin-top: 28px;
-    }
-
-    .hidden-section.active {
-      display: block;
-    }
-
     footer {
       border-top: 1px solid var(--line);
       margin-top: 56px;
@@ -197,164 +205,157 @@
         <p class="site-subtitle">PhD Candidate in Economics, University of Mannheim</p>
       </div>
       <nav class="nav" aria-label="Main navigation">
-        <a onclick="showHome()">Home</a>
-        <a onclick="showSection('research')">Research</a>
-        <a onclick="showSection('teaching')">Teaching</a>
-        <a onclick="showSection('data')">Data</a>
-        <a onclick="showSection('cv')">CV</a>
+        <button type="button" onclick="showView('home')">Home</button>
+        <button type="button" onclick="showView('research')">Research</button>
+        <button type="button" onclick="showView('teaching')">Teaching</button>
+        <button type="button" onclick="showView('data')">Data</button>
+        <button type="button" onclick="showView('cv')">CV</button>
       </nav>
     </header>
 
     <main>
-      <!-- Homepage order: intro first, then news, then contact -->
-      <div id="home-content">
-      <section class="hero" id="about">
-        <img src="Image 5.jpg" alt="Portrait of Ayman Tibi" />
-        <div>
-          <h2>Ayman Tibi <span class="arabic">أيمن الطّيبي</span></h2>
-          <div class="meta">International Trade · Development · Industrial Policy · Geoeconomics</div>
-          <p>
-            I am a PhD candidate in Economics at the University of Mannheim. My research focuses on international trade,
-            development, industrial policy, and geoeconomics. 
-          </p>
-          <p>
-            My work focuses on understanding economic challenges in developing countries. I am particularly interested in how economic policies shape development outcomes and firm behavior in MENA, Africa, and the EU.
-          </p>
-          <p>
-          In my work, I use empirical analysis, large-scale data work, and quantitative general equilibrium models.
+      <div id="home" class="view active">
+        <section class="hero" id="about">
+          <img src="Image 5.jpg" alt="Portrait of Ayman Tibi" />
+          <div>
+            <h2>Ayman Tibi <span class="arabic">أيمن الطّيبي</span></h2>
+            <div class="meta">International Trade · Development · Industrial Policy · Geoeconomics</div>
+            <p>
+              I am a PhD candidate in Economics at the University of Mannheim. My research focuses on international trade,
+              development, industrial policy, and geoeconomics.
             </p>
-          <p class="links">
-            <a href="mailto:atibi(at)mail.uni-mannheim.de">Email</a>
-            <a href="CV___Ayman_Tibi (6).pdf" target="_blank" rel="noopener">CV</a>
+            <p>
+              My work focuses on understanding economic challenges in developing countries. I am particularly interested in how economic policies shape development outcomes and firm behavior in MENA, Africa, and the EU.
+            </p>
+            <p>
+              In my work, I use empirical analysis, large-scale data work, and quantitative general equilibrium models.
+            </p>
+            <p class="links">
+              <a href="mailto:atibi(at)mail.uni-mannheim.de">Email</a>
+              <a href="CV___Ayman_Tibi (6).pdf" target="_blank" rel="noopener">CV</a>
+            </p>
+          </div>
+        </section>
+
+        <section id="news">
+          <h3>Upcoming News and Events</h3>
+          <ul class="item-list">
+            <li>
+              <div class="item-title">FHM+ Workshop in Development Economics</div>
+              <div class="item-sub">University of Stuttgart, October 2025</div>
+            </li>
+            <li>
+              <div class="item-title">YSI Workshop on Structural Change, Inequality, and Growth</div>
+              <div class="item-sub">Maastricht, June 2025</div>
+            </li>
+            <li>
+              <div class="item-title">Third BCFM PhD Conference</div>
+              <div class="item-sub">Frankfurt, June 2025</div>
+            </li>
+          </ul>
+        </section>
+
+        <section id="contact">
+          <h3>Contact</h3>
+          <p>
+            Email: <a href="mailto:atibi@mail.uni-mannheim.de">atibi@mail.uni-mannheim.de</a>
           </p>
-        </div>
-      </section>
-
-      <section id="news">
-        <h3>Upcoming News and Events</h3>
-        <ul class="item-list">
-          <li>
-            <div class="item-title">FHM+ Workshop in Development Economics</div>
-            <div class="item-sub">University of Stuttgart, October 2025</div>
-          </li>
-          <li>
-            <div class="item-title">YSI Workshop on Structural Change, Inequality, and Growth</div>
-            <div class="item-sub">Maastricht, June 2025</div>
-          </li>
-          <li>
-            <div class="item-title">Third BCFM PhD Conference</div>
-            <div class="item-sub">Frankfurt, June 2025</div>
-          </li>
-        </ul>
-      </section>
-
-      <section id="contact">
-        <h3>Contact</h3>
-        <p>
-          Email: <a href="mailto:atibi@mail.uni-mannheim.de">atibi@mail.uni-mannheim.de</a>
-        </p>
-        <p>
-          University of Mannheim
-        </p>
-      </section>
-
+          <p>
+            University of Mannheim
+          </p>
+        </section>
       </div>
 
-      <section id="research" class="hidden-section">
-        <h3>Research</h3>
-        <ul class="item-list">
-          <li>
-            <div class="item-title">Conditional Trade Policy for Peace? The Economic Effects of Qualifying Industrial Zones in the Middle East</div>
-            <div class="item-sub">Work in progress</div>
-            <details>
-              <summary>Abstract</summary>
-              <p>
-                How do conditional trade policies with input-sourcing requirements affect firm exports, production, and labor outcomes?
-                I study Egypt's Qualifying Industrial Zones program, which grants Egyptian firms duty-free access to the U.S. market
-                conditional on sourcing inputs from Israel. Using firm-level customs data, industrial census records, and labor force
-                surveys, I estimate the effects of the program on exports, output, productivity, employment, and wages. I also develop a
-                quantitative heterogeneous-firm trade model with endogenous compliance and productivity upgrading to quantify aggregate
-                effects and counterfactual policy scenarios.
-              </p>
-            </details>
-          </li>
+      <div id="research" class="view">
+        <section>
+          <h3>Research</h3>
+          <ul class="item-list">
+            <li>
+              <div class="item-title">Conditional Trade Policy for Peace? The Economic Effects of Qualifying Industrial Zones in the Middle East</div>
+              <div class="item-sub">Work in progress</div>
+              <details>
+                <summary>Abstract</summary>
+                <p>
+                  How do conditional trade policies with input-sourcing requirements affect firm exports, production, and labor outcomes?
+                  I study Egypt's Qualifying Industrial Zones program, which grants Egyptian firms duty-free access to the U.S. market
+                  conditional on sourcing inputs from Israel. Using firm-level customs data, industrial census records, and labor force
+                  surveys, I estimate the effects of the program on exports, output, productivity, employment, and wages. I also develop a
+                  quantitative heterogeneous-firm trade model with endogenous compliance and productivity upgrading to quantify aggregate
+                  effects and counterfactual policy scenarios.
+                </p>
+              </details>
+            </li>
 
-          <li>
-            <div class="item-title">The Political Economy of Newspaper Funding in India</div>
-            <div class="item-sub">With Pooja Singh</div>
-            <details>
-              <summary>Abstract</summary>
-              <p>
-                This project studies how incumbent governments in India allocate newspaper advertising and whether this spending is used
-                strategically to influence electoral outcomes.
-              </p>
-            </details>
-          </li>
-        </ul>
-      </section>
+            <li>
+              <div class="item-title">The Political Economy of Newspaper Funding in India</div>
+              <div class="item-sub">With Pooja Singh</div>
+              <details>
+                <summary>Abstract</summary>
+                <p>
+                  This project studies how incumbent governments in India allocate newspaper advertising and whether this spending is used
+                  strategically to influence electoral outcomes.
+                </p>
+              </details>
+            </li>
+          </ul>
+        </section>
+      </div>
 
-      <section id="teaching" class="hidden-section">
-        <h3>Teaching</h3>
-        <ul class="item-list">
-          <li>
-            <div class="item-title">Teaching Assistant, [Course Title]</div>
-            <div class="item-sub">University of Mannheim, [Semester]</div>
-          </li>
-          <li>
-            <div class="item-title">Teaching Assistant, [Course Title]</div>
-            <div class="item-sub">University of Mannheim, [Semester]</div>
-          </li>
-        </ul>
-      </section>
+      <div id="teaching" class="view">
+        <section>
+          <h3>Teaching</h3>
+          <ul class="item-list">
+            <li>
+              <div class="item-title">Teaching Assistant, [Course Title]</div>
+              <div class="item-sub">University of Mannheim, [Semester]</div>
+            </li>
+            <li>
+              <div class="item-title">Teaching Assistant, [Course Title]</div>
+              <div class="item-sub">University of Mannheim, [Semester]</div>
+            </li>
+          </ul>
+        </section>
+      </div>
 
-      <section id="data" class="hidden-section">
-        <h3>Data and Code</h3>
-        <ul class="item-list">
-          <li>
-            <div class="item-title"><a href="#">Replication files for [Project Name]</a></div>
-            <div class="item-sub">Code, data description, and documentation</div>
-          </li>
-          <li>
-            <div class="item-title"><a href="#">Policy data project or dashboard</a></div>
-            <div class="item-sub">Brief description of the dataset or tool</div>
-          </li>
-        </ul>
-      </section>
+      <div id="data" class="view">
+        <section>
+          <h3>Data and Code</h3>
+          <ul class="item-list">
+            <li>
+              <div class="item-title"><a href="#">Replication files for [Project Name]</a></div>
+              <div class="item-sub">Code, data description, and documentation</div>
+            </li>
+            <li>
+              <div class="item-title"><a href="#">Policy data project or dashboard</a></div>
+              <div class="item-sub">Brief description of the dataset or tool</div>
+            </li>
+          </ul>
+        </section>
+      </div>
 
-      <section id="cv" class="hidden-section">
-        <h3>CV</h3>
-        <p>
-          You can download my <a href="CV___Ayman_Tibi (6).pdf" target="_blank" rel="noopener">curriculum vitae here</a>.
-        </p>
-      </section>
+      <div id="cv" class="view">
+        <section>
+          <h3>CV</h3>
+          <p>
+            You can download my <a href="CV___Ayman_Tibi (6).pdf" target="_blank" rel="noopener">curriculum vitae here</a>.
+          </p>
+        </section>
+      </div>
     </main>
 
     <footer>
       © 2025 Ayman Tibi
     </footer>
   </div>
+
   <script>
-    function showSection(sectionId) {
-      const home = document.getElementById('home-content');
-      const sections = document.querySelectorAll('.hidden-section');
-      if (home) home.style.display = 'none';
-      sections.forEach(section => section.classList.remove('active'));
-      const target = document.getElementById(sectionId);
+    function showView(viewId) {
+      const views = document.querySelectorAll('.view');
+      views.forEach(view => view.classList.remove('active'));
+      const target = document.getElementById(viewId);
       if (target) {
         target.classList.add('active');
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    }
-
-    function showHome() {
-      const home = document.getElementById('home-content');
-      const sections = document.querySelectorAll('.hidden-section');
-      sections.forEach(section => section.classList.remove('active'));
-      if (home) {
-        home.style.display = 'block';
-        home.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       }
     }
   </script>
