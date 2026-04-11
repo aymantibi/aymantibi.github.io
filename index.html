@@ -197,6 +197,7 @@
         <p class="site-subtitle">PhD Candidate in Economics, University of Mannheim</p>
       </div>
       <nav class="nav" aria-label="Main navigation">
+        <a onclick="showHome()">Home</a>
         <a onclick="showSection('research')">Research</a>
         <a onclick="showSection('teaching')">Teaching</a>
         <a onclick="showSection('data')">Data</a>
@@ -205,6 +206,8 @@
     </header>
 
     <main>
+      <!-- Homepage order: intro first, then news, then contact -->
+      <div id="home-content">
       <section class="hero" id="about">
         <img src="Image 5.jpg" alt="Portrait of Ayman Tibi" />
         <div>
@@ -254,6 +257,8 @@
           University of Mannheim
         </p>
       </section>
+
+      </div>
 
       <section id="research" class="hidden-section">
         <h3>Research</h3>
@@ -330,12 +335,26 @@
   </div>
   <script>
     function showSection(sectionId) {
+      const home = document.getElementById('home-content');
       const sections = document.querySelectorAll('.hidden-section');
+      if (home) home.style.display = 'none';
       sections.forEach(section => section.classList.remove('active'));
       const target = document.getElementById(sectionId);
       if (target) {
         target.classList.add('active');
         target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+
+    function showHome() {
+      const home = document.getElementById('home-content');
+      const sections = document.querySelectorAll('.hidden-section');
+      sections.forEach(section => section.classList.remove('active'));
+      if (home) {
+        home.style.display = 'block';
+        home.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
       }
     }
   </script>
