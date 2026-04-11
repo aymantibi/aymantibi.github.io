@@ -1,195 +1,337 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ayman Tibi</title>
-<style>
-  body {
-    font-family: "Georgia", "Times New Roman", serif;
-    max-width: 900px;
-    margin: 60px auto;
-    padding: 0 20px;
-    color: #2f2f2f;
-    background: #fafafa;
-    line-height: 1.7;
-  }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ayman Tibi</title>
+  <style>
+    :root {
+      --text: #222;
+      --muted: #666;
+      --line: #e6e6e6;
+      --link: #1f4fa3;
+      --bg: #ffffff;
+      --maxw: 980px;
+    }
 
-  .top-section {
-    display: flex;
-    align-items: center;
-    gap: 35px;
-    flex-wrap: wrap;
-    margin-bottom: 30px;
-  }
+    * { box-sizing: border-box; }
 
-  .top-section img {
-    width: 220px;
-    height: auto;
-    border-radius: 10px;
-    border: 2px solid #e1e1e1;
-    object-fit: cover;
-  }
+    html { scroll-behavior: smooth; }
 
-  .intro {
-    flex: 1;
-    min-width: 260px;
-  }
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.7;
+      font-size: 18px;
+    }
 
-  .intro h1 {
-    font-size: 2.3rem;
-    margin: 0;
-    color: #1a1a1a;
-  }
+    a {
+      color: var(--link);
+      text-decoration: none;
+    }
 
-  .intro span {
-    display: inline-block;
-    font-size: 1.4rem;
-    color: #555;
-    margin-left: 10px;
-  }
+    a:hover { text-decoration: underline; }
 
-  .intro h3 {
-    font-weight: normal;
-    color: #555;
-    margin: 10px 0 15px;
-    font-size: 1.05rem;
-  }
+    .page {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 28px 24px 64px;
+    }
 
-  .intro p {
-    margin: 8px 0;
-    font-size: 1.05rem;
-  }
-
-  .links a {
-    color: #0044cc;
-    text-decoration: none;
-  }
-
-  .links a:hover {
-    text-decoration: underline;
-  }
-
-  h2 {
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 4px;
-    color: #2c3e50;
-    margin-top: 40px;
-    font-size: 1.3rem;
-  }
-
-  ul {
-    list-style-type: disc;
-    padding-left: 20px;
-    margin-top: 10px;
-  }
-
-  li {
-    margin-bottom: 14px;
-    font-size: 1.05rem;
-  }
-
-  details summary {
-    cursor: pointer;
-    color: #0044cc;
-    font-size: 0.95rem;
-    margin-top: 5px;
-  }
-
-  details p {
-    margin-top: 8px;
-    font-size: 0.95rem;
-    color: #444;
-  }
-
-  footer {
-    text-align: center;
-    font-size: 0.85rem;
-    color: #777;
-    margin-top: 45px;
-    border-top: 1px solid #e0e0e0;
-    padding-top: 12px;
-  }
-
-  @media (max-width: 700px) {
-    .top-section {
-      flex-direction: column;
+    .site-header {
+      display: flex;
+      justify-content: space-between;
       align-items: center;
-      text-align: center;
+      gap: 24px;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 18px;
+      margin-bottom: 44px;
+      flex-wrap: wrap;
     }
-    .intro span {
+
+    .site-title {
+      font-size: 1.8rem;
+      margin: 0;
+      font-weight: normal;
+    }
+
+    .site-subtitle {
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .nav {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      font-size: 1rem;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 36px;
+      align-items: start;
+      margin-bottom: 48px;
+    }
+
+    .hero img {
+      width: 100%;
+      max-width: 240px;
+      border: 1px solid var(--line);
       display: block;
-      margin-left: 0;
-      margin-top: 4px;
     }
-    .top-section img {
-      width: 180px;
-      margin-bottom: 15px;
+
+    .hero h2 {
+      margin: 0 0 8px;
+      font-size: 2rem;
+      font-weight: normal;
     }
-  }
-</style>
+
+    .hero .arabic {
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin-left: 8px;
+      white-space: nowrap;
+    }
+
+    .hero p {
+      margin: 0 0 16px;
+    }
+
+    .meta {
+      color: var(--muted);
+      font-size: 1rem;
+      margin-bottom: 16px;
+    }
+
+    .links {
+      font-size: 1rem;
+      color: var(--muted);
+    }
+
+    .links a { margin-right: 14px; }
+
+    section {
+      margin-top: 42px;
+      padding-top: 8px;
+    }
+
+    section h3 {
+      font-size: 1.28rem;
+      font-weight: normal;
+      margin: 0 0 14px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .item-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .item-list li {
+      margin-bottom: 20px;
+    }
+
+    .item-title {
+      font-weight: bold;
+    }
+
+    .item-sub {
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    details {
+      margin-top: 6px;
+    }
+
+    details summary {
+      cursor: pointer;
+      color: var(--link);
+      font-size: 0.98rem;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      margin-top: 56px;
+      padding-top: 18px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 760px) {
+      body { font-size: 17px; }
+      .hero {
+        grid-template-columns: 1fr;
+      }
+      .hero img {
+        max-width: 220px;
+      }
+      .two-col {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+    }
+  </style>
 </head>
 <body>
+  <div class="page">
+    <header class="site-header">
+      <div>
+        <h1 class="site-title">Ayman Tibi</h1>
+        <p class="site-subtitle">PhD Candidate in Economics, University of Mannheim</p>
+      </div>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#teaching">Teaching</a>
+        <a href="#data">Data</a>
+        <a href="#news">News</a>
+        <a href="#cv">CV</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
 
-<div class="top-section">
-  <img src="Image 5.jpg" alt="Ayman Tibi">
-  <div class="intro">
-    <h1>Ayman Tibi <span>أيمن الطّيبي</span></h1>
-    <h3>PhD Student in Economics · University of Mannheim</h3>
-
-    <p class="links">
-      Email: <a href="mailto:atibi@mail.uni-mannheim.de">atibi(at)mail.uni-mannheim.de</a>
-    </p>
-
-    <p>
-      Welcome! I am a PhD candidate in Economics at the University of Mannheim, with research interests in international trade, development, industrial policy, and geoeconomics.
+    <main>
+      <section class="hero" id="about">
+        <img src="Image 5.jpg" alt="Portrait of Ayman Tibi" />
+        <div>
+          <h2>Ayman Tibi <span class="arabic">أيمن الطّيبي</span></h2>
+          <div class="meta">International Trade · Development · Industrial Policy · Public Finance · Conflict</div>
+          <p>
+            I am a PhD candidate in Economics at the University of Mannheim. My research focuses on international trade,
+            development, industrial policy, public finance, and conflict.
           </p>
-    
-    <p>
-      My work focuses on understanding economic challenges in developing countries. I am particularly interested in how economic policies shape development outcomes and firm behavior in MENA, Africa, South Asia and the EU. 
-    </p>
-    
+          <p>
+            I study policy-relevant economic questions with a regional focus on MENA, Africa, South Asia, and the EU. My work combines
+            empirical analysis, large-scale data work, and quantitative general equilibrium models.
+          </p>
+          <p>
+            I collaborate with academic, policy, and private sector institutions to produce research with real-world impact.
+          </p>
+          <p class="links">
+            <a href="mailto:atibi@mail.uni-mannheim.de">Email</a>
+            <a href="CV___Ayman_Tibi (6).pdf" target="_blank" rel="noopener">CV</a>
+            <a href="#research">Research</a>
+            <a href="#data">Data</a>
+          </p>
+        </div>
+      </section>
+
+      <section id="research">
+        <h3>Research</h3>
+        <ul class="item-list">
+          <li>
+            <div class="item-title">Conditional Trade Policy for Peace? The Economic Effects of Qualifying Industrial Zones in the Middle East</div>
+            <div class="item-sub">Work in progress</div>
+            <details>
+              <summary>Abstract</summary>
+              <p>
+                How do conditional trade policies with input-sourcing requirements affect firm exports, production, and labor outcomes?
+                I study Egypt's Qualifying Industrial Zones program, which grants Egyptian firms duty-free access to the U.S. market
+                conditional on sourcing inputs from Israel. Using firm-level customs data, industrial census records, and labor force
+                surveys, I estimate the effects of the program on exports, output, productivity, employment, and wages. I also develop a
+                quantitative heterogeneous-firm trade model with endogenous compliance and productivity upgrading to quantify aggregate
+                effects and counterfactual policy scenarios.
+              </p>
+            </details>
+          </li>
+
+          <li>
+            <div class="item-title">The Political Economy of Newspaper Funding in India</div>
+            <div class="item-sub">With Pooja Singh</div>
+            <details>
+              <summary>Abstract</summary>
+              <p>
+                This project studies how incumbent governments in India allocate newspaper advertising and whether this spending is used
+                strategically to influence electoral outcomes.
+              </p>
+            </details>
+          </li>
+        </ul>
+      </section>
+
+      <section id="teaching">
+        <h3>Teaching</h3>
+        <ul class="item-list">
+          <li>
+            <div class="item-title">Teaching Assistant, [Course Title]</div>
+            <div class="item-sub">University of Mannheim, [Semester]</div>
+          </li>
+          <li>
+            <div class="item-title">Teaching Assistant, [Course Title]</div>
+            <div class="item-sub">University of Mannheim, [Semester]</div>
+          </li>
+        </ul>
+      </section>
+
+      <section id="data">
+        <h3>Data and Code</h3>
+        <ul class="item-list">
+          <li>
+            <div class="item-title"><a href="#">Replication files for [Project Name]</a></div>
+            <div class="item-sub">Code, data description, and documentation</div>
+          </li>
+          <li>
+            <div class="item-title"><a href="#">Policy data project or dashboard</a></div>
+            <div class="item-sub">Brief description of the dataset or tool</div>
+          </li>
+        </ul>
+      </section>
+
+      <section class="two-col">
+        <div id="news">
+          <h3>News</h3>
+          <ul class="item-list">
+            <li>
+              <div class="item-title">FHM+ Workshop in Development Economics</div>
+              <div class="item-sub">University of Stuttgart, October 2025</div>
+            </li>
+            <li>
+              <div class="item-title">YSI Workshop on Structural Change, Inequality, and Growth</div>
+              <div class="item-sub">Maastricht, June 2025</div>
+            </li>
+            <li>
+              <div class="item-title">Third BCFM PhD Conference</div>
+              <div class="item-sub">Frankfurt, June 2025</div>
+            </li>
+          </ul>
+        </div>
+
+        <div id="cv">
+          <h3>CV</h3>
+          <p>
+            You can download my <a href="CV___Ayman_Tibi (6).pdf" target="_blank" rel="noopener">curriculum vitae here</a>.
+          </p>
+        </div>
+      </section>
+
+      <section id="contact">
+        <h3>Contact</h3>
+        <p>
+          Email: <a href="mailto:atibi@mail.uni-mannheim.de">atibi@mail.uni-mannheim.de</a>
+        </p>
+        <p>
+          University of Mannheim
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      © 2025 Ayman Tibi
+    </footer>
   </div>
-</div>
-
-<h2><a href="CV___Ayman_Tibi (6).pdf" target="_blank">Curriculum Vitae</a></h2>
-
-<h2>Work in Progress</h2>
-<ul>
-  <li>
-    <strong>Conditional Trade Policy for Peace? The Economic Effects of Qualifying Industrial Zones in the Middle East</strong>
-    <span style="color:#888; font-size:0.9em;">(Draft coming soon)</span>
-    <details>
-      <summary>Read Abstract</summary>
-      <p>
-        How do conditional trade policies with input-sourcing requirements affect firm exports, production, and labor outcomes? To answer this question, I study Egypt’s Qualifying Industrial Zones (QIZ) program, which grants Egyptian firms duty-free access to the U.S. market conditional on sourcing inputs from Israel. I estimate event-study and triple-difference specifications using firm-level customs data, industrial census records, and labor force surveys. I find large and persistent export gains along both intensive and extensive margins alongside improvements in output, productivity, employment, and wages. The improvements are driven by U.S. market access rather than the quality of Israeli inputs. To map these firm-level responses into aggregate and welfare implications, I develop a quantitative heterogeneous-firm trade model with endogenous QIZ compliance, input requirement costs, and productivity upgrading. The framework is used to quantify the program’s economy-wide effects and conduct counterfactual analyses that vary the Israeli content requirement, highlighting the trade-off between lower tariffs and higher input costs.\end{abstract}
-      </p>
-    </details>
-  </li>
-
-  <li>
-    <strong>The Political Economy of Newspaper Funding in India</strong><br>
-    <em>with Pooja Singh</em>
-     <details>
-      <summary>Read Abstract</summary>
-      <p>
-      This paper looks at how the Indian incumbent governments strategically post ads in Indian newspapers in order to maximize their chances of staying in power after elections.
-      </p>
-    </details>
-  </li>
-</ul>
-
-<h2>News and Upcoming Talks</h2>
-<ul>
-    <li>Presented at the FHM+ workshop in development economics at the University of Stuttgart (October 2025)</li>
-  <li>Presented at the YSI Workshop on Structural Change, Inequality, and Growth — Maastricht, Netherlands (June 2025)</li>
-  <li>Presented at the “Third BCFM PhD Conference” — Frankfurt, Germany (June 2025)</li>
-  <li>Participated in the 23rd Summer School in International and Development Economics — Tuscany, Italy (Sept 2024)</li>
-</ul>
-
-<footer>
-  © 2025 Ayman Tibi
-</footer>
-
 </body>
 </html>
