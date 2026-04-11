@@ -70,6 +70,10 @@
       font-size: 1rem;
     }
 
+    .nav a {
+      cursor: pointer;
+    }
+
     .hero {
       display: grid;
       grid-template-columns: 240px 1fr;
@@ -157,10 +161,13 @@
       font-size: 0.98rem;
     }
 
-    .two-col {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 32px;
+    .hidden-section {
+      display: none;
+      margin-top: 28px;
+    }
+
+    .hidden-section.active {
+      display: block;
     }
 
     footer {
@@ -179,10 +186,6 @@
       .hero img {
         max-width: 220px;
       }
-      .two-col {
-        grid-template-columns: 1fr;
-        gap: 10px;
-      }
     }
   </style>
 </head>
@@ -194,33 +197,14 @@
         <p class="site-subtitle">PhD Candidate in Economics, University of Mannheim</p>
       </div>
       <nav class="nav" aria-label="Main navigation">
-        <a href="#research">Research</a>
-        <a href="#teaching">Teaching</a>
-        <a href="#data">Data</a>
-        <a href="#cv">CV</a>
-        <a href="#contact">Contact</a>
+        <a onclick="showSection('research')">Research</a>
+        <a onclick="showSection('teaching')">Teaching</a>
+        <a onclick="showSection('data')">Data</a>
+        <a onclick="showSection('cv')">CV</a>
       </nav>
     </header>
 
     <main>
-      <section id="news">
-        <h3>Upcoming News and Events</h3>
-        <ul class="item-list">
-          <li>
-            <div class="item-title">FHM+ Workshop in Development Economics</div>
-            <div class="item-sub">University of Stuttgart, October 2025</div>
-          </li>
-          <li>
-            <div class="item-title">YSI Workshop on Structural Change, Inequality, and Growth</div>
-            <div class="item-sub">Maastricht, June 2025</div>
-          </li>
-          <li>
-            <div class="item-title">Third BCFM PhD Conference</div>
-            <div class="item-sub">Frankfurt, June 2025</div>
-          </li>
-        </ul>
-      </section>
-
       <section class="hero" id="about">
         <img src="Image 5.jpg" alt="Portrait of Ayman Tibi" />
         <div>
@@ -243,7 +227,35 @@
         </div>
       </section>
 
-      <section id="research">
+      <section id="news">
+        <h3>Upcoming News and Events</h3>
+        <ul class="item-list">
+          <li>
+            <div class="item-title">FHM+ Workshop in Development Economics</div>
+            <div class="item-sub">University of Stuttgart, October 2025</div>
+          </li>
+          <li>
+            <div class="item-title">YSI Workshop on Structural Change, Inequality, and Growth</div>
+            <div class="item-sub">Maastricht, June 2025</div>
+          </li>
+          <li>
+            <div class="item-title">Third BCFM PhD Conference</div>
+            <div class="item-sub">Frankfurt, June 2025</div>
+          </li>
+        </ul>
+      </section>
+
+      <section id="contact">
+        <h3>Contact</h3>
+        <p>
+          Email: <a href="mailto:atibi@mail.uni-mannheim.de">atibi@mail.uni-mannheim.de</a>
+        </p>
+        <p>
+          University of Mannheim
+        </p>
+      </section>
+
+      <section id="research" class="hidden-section">
         <h3>Research</h3>
         <ul class="item-list">
           <li>
@@ -276,7 +288,7 @@
         </ul>
       </section>
 
-      <section id="teaching">
+      <section id="teaching" class="hidden-section">
         <h3>Teaching</h3>
         <ul class="item-list">
           <li>
@@ -290,7 +302,7 @@
         </ul>
       </section>
 
-      <section id="data">
+      <section id="data" class="hidden-section">
         <h3>Data and Code</h3>
         <ul class="item-list">
           <li>
@@ -304,20 +316,10 @@
         </ul>
       </section>
 
-      <section id="cv">
+      <section id="cv" class="hidden-section">
         <h3>CV</h3>
         <p>
           You can download my <a href="CV___Ayman_Tibi (6).pdf" target="_blank" rel="noopener">curriculum vitae here</a>.
-        </p>
-      </section>
-
-      <section id="contact">
-        <h3>Contact</h3>
-        <p>
-          Email: <a href="mailto:atibi@mail.uni-mannheim.de">atibi@mail.uni-mannheim.de</a>
-        </p>
-        <p>
-          University of Mannheim
         </p>
       </section>
     </main>
@@ -326,5 +328,16 @@
       © 2025 Ayman Tibi
     </footer>
   </div>
+  <script>
+    function showSection(sectionId) {
+      const sections = document.querySelectorAll('.hidden-section');
+      sections.forEach(section => section.classList.remove('active'));
+      const target = document.getElementById(sectionId);
+      if (target) {
+        target.classList.add('active');
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  </script>
 </body>
 </html>
