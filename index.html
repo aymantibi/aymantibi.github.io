@@ -1,9 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ayman Tibi</title>
+
   <style>
     :root {
       --text: #222;
@@ -83,13 +85,8 @@
       text-decoration: underline;
     }
 
-    .view {
-      display: none;
-    }
-
-    .view.active {
-      display: block;
-    }
+    .view { display: none; }
+    .view.active { display: block; }
 
     .hero {
       display: grid;
@@ -119,9 +116,7 @@
       white-space: nowrap;
     }
 
-    .hero p {
-      margin: 0 0 16px;
-    }
+    .hero p { margin: 0 0 16px; }
 
     .meta {
       color: var(--muted);
@@ -155,27 +150,121 @@
       list-style: none;
     }
 
-    .item-list li {
-      margin-bottom: 20px;
-    }
+    .item-list li { margin-bottom: 20px; }
 
-    .item-title {
-      font-weight: bold;
-    }
+    .item-title { font-weight: bold; }
 
     .item-sub {
       color: var(--muted);
       font-size: 0.98rem;
     }
 
-    details {
-      margin-top: 6px;
-    }
+    details { margin-top: 6px; }
 
     details summary {
       cursor: pointer;
       color: var(--link);
       font-size: 0.98rem;
+    }
+
+    /* Smaller conference listings */
+
+    #news h3 {
+      font-size: 1.15rem;
+    }
+
+    #news .item-title {
+      font-size: 0.92rem;
+      font-weight: normal;
+      line-height: 1.5;
+    }
+
+    #news .item-sub {
+      font-size: 0.82rem;
+      color: #777;
+      line-height: 1.5;
+    }
+
+    #news .item-list li {
+      margin-bottom: 12px;
+    }
+
+    /* Research section headings */
+
+    #research .research-heading {
+      margin: 36px 0 17px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--line);
+      color: #56606f;
+      font-family: Arial, sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      line-height: 1.4;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+    }
+
+    #research .research-heading:first-of-type {
+      margin-top: 30px;
+    }
+
+    #research .item-list > li {
+      margin-bottom: 22px;
+    }
+
+    #research .item-list > li:not(:last-child) {
+      padding-bottom: 21px;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    #research .item-title {
+      font-size: 1.06rem;
+      font-weight: 700;
+      line-height: 1.45;
+    }
+
+    #research .item-sub {
+      margin-top: 4px;
+      font-size: 0.89rem;
+      line-height: 1.5;
+    }
+
+    /* Job market paper emphasis */
+
+    #research .job-market-list {
+      border-left: 3px solid var(--link);
+      padding-left: 18px;
+    }
+
+    /* Smaller conference recognition */
+
+    #research .conference-note {
+      margin-top: 4px;
+      color: #777;
+      font-size: 0.76rem;
+      font-style: italic;
+    }
+
+    #research .draft-note {
+      color: #6b6b6b;
+      font-size: 0.84rem;
+      font-style: italic;
+    }
+
+    #research details {
+      margin-top: 9px;
+    }
+
+    #research details summary {
+      font-size: 0.9rem;
+    }
+
+    #research details p {
+      max-width: 850px;
+      margin: 10px 0 0;
+      color: #383838;
+      line-height: 1.75;
+      font-size: 0.96rem;
     }
 
     footer {
@@ -201,302 +290,375 @@
 </head>
 
 <body>
-  <div class="page">
-    <header class="site-header">
-      <div>
-        <h1 class="site-title">Ayman Tibi</h1>
-        <p class="site-subtitle">PhD Candidate in Economics, University of Mannheim</p>
-      </div>
+<div class="page">
 
-      <nav class="nav" aria-label="Main navigation">
-        <button type="button" onclick="showView('home')">Home</button>
-        <button type="button" onclick="showView('research')">Research</button>
-        <button type="button" onclick="showView('teaching')">Teaching</button>
-        <button type="button" onclick="showView('data')">Data & Other Writings</button>
-        <button type="button" onclick="showView('cv')">CV</button>
-      </nav>
-    </header>
+  <header class="site-header">
+    <div>
+      <h1 class="site-title">Ayman Tibi</h1>
+      <p class="site-subtitle">
+        PhD Candidate in Economics, University of Mannheim
+      </p>
+    </div>
 
-    <main>
-      <div id="home" class="view active">
-        <section class="hero" id="about">
-          <img src="Image 6.jpg" alt="Portrait of Ayman Tibi" />
+    <nav class="nav" aria-label="Main navigation">
+      <button type="button" onclick="showView('home')">Home</button>
+      <button type="button" onclick="showView('research')">Research</button>
+      <button type="button" onclick="showView('teaching')">Teaching</button>
+      <button type="button" onclick="showView('data')">Data & Other Writings</button>
+      <button type="button" onclick="showView('cv')">CV</button>
+    </nav>
+  </header>
 
-          <div>
-            <h2>Ayman Tibi <span class="arabic">أيمن الطّيبي</span></h2>
+  <main>
 
-            <div class="meta">International Trade · Development · Industrial Policy · Geoeconomics</div>
+    <!-- HOME -->
 
-            <p>
-              I am a PhD candidate in Economics at the University of Mannheim. My research interests are in international trade, development economics
-              and geoeconomics
-            </p>
+    <div id="home" class="view active">
 
-            <p>
-              I am particularly interested in how economic policies and shocks shape firm behavior and development outcomes in developing countries. 
-            </p>
-                        <p>
-              I will be on the 2026/2027 Economic Job Market 
-            </p>
+      <section class="hero" id="about">
+        <img src="Image 6.jpg" alt="Portrait of Ayman Tibi" />
 
-            <p class="links">
-              <a href="mailto:atibi(at)mail.uni-mannheim.de">Email</a>
-<a href="CV___Ayman_Tibi (13).pdf" target="_blank" rel="noopener noreferrer">CV</a>
-</p>
+        <div>
+          <h2>
+            Ayman Tibi
+            <span class="arabic">أيمن الطّيبي</span>
+          </h2>
+
+          <div class="meta">
+            International Trade · Development · Industrial Policy · Geoeconomics
           </div>
-        </section>
-
-        <section id="news">
-          <h3>Recent/Upcoming Conferences and Events</h3>
-          <ul class="item-list">
-                        <li>
-              <div class="item-title">ReCIPE Annual Conference 2027</div>
-              <div class="item-sub">Oxford, UK; March 2027</div>
-            </li>
-
-          <ul class="item-list">
-                        <li>
-              <div class="item-title">2026 IMF MENA ANNUAL RESEARCH CONFERENCE</div>
-              <div class="item-sub">Rabat, Morocco; June 2026</div>
-            </li>
-
-            <li>
-              <div class="item-title">Economics Seminar Presentation at GIGA</div>
-              <div class="item-sub">Hamburg, Germany; April 2026</div>
-            </li>
-
-            <li>
-              <div class="item-title">Industrial Policy for Africa Conference (World Bank)</div>
-              <div class="item-sub">Nairobi, Kenya; January 2026</div>
-            </li>
-
-            <li>
-              <div class="item-title">FHM+ Workshop in Development Economics</div>
-              <div class="item-sub">University of Stuttgart; October 2025</div>
-            </li>
-
-            <li>
-              <div class="item-title">YSI Workshop on Structural Change, Inequality, and Growth</div>
-              <div class="item-sub">Maastricht, Netherlands; June 2025</div>
-            </li>
-
-            <li>
-              <div class="item-title">Third BCFM PhD Conference</div>
-              <div class="item-sub">Frankfurt, Germany; June 2025</div>
-            </li>
-          </ul>
-        </section>
-
-        <section id="contact">
-          <h3>Contact</h3>
 
           <p>
-            Email: <a href="mailto:atibi@mail.uni-mannheim.de">atibi@mail.uni-mannheim.de</a>
+            I am a PhD candidate in Economics at the University of Mannheim.
+            My research interests are in international trade,
+            development economics and geoeconomics.
           </p>
 
           <p>
-            University of Mannheim
+            I am particularly interested in how economic policies and
+            shocks shape firm behavior and development outcomes in
+            developing countries.
           </p>
-        </section>
-      </div>
 
-
-<div id="research" class="view">
-  <section>
-    <h3>Research</h3>
-
-    <!-- JOB MARKET PAPER -->
-    <h4 class="research-heading">Job Market Paper</h4>
-
-    <ul class="item-list">
-      <li>
-        <div class="item-title">
-          The Economics of a Trade Policy for Peace?
-        </div>
-        <div class="item-sub">
-          Special Mention at IMF MENA Research Conference
-        </div>
-
-        <details>
-          <summary>Abstract</summary>
           <p>
-            Countries may use trade agreements to promote peaceful relations among allies and advance geopolitical interests. In this paper, I study the U.S.-fostered Qualifying Industrial Zones agreement, which grants Egyptian firms in designated zones tariff-free access to the U.S. market conditional on sourcing a fixed share of inputs from Israel. Using product level trade data, firm level customs records, and industrial statistics and a diff in diffs design, I find that the agreement generated large and persistent gains in exports not only to the U.S. but also to other destinations. This expansion to other destinations is driven by and wages for exposed industries driven primarily by preferential access to the U.S. market rather than by improvements in the quality of Israeli inputs. To quantify the welfare effects of the agreement and evaluate the design of the agreement, I develop a heterogeneous-firm trade model in which firms endogenously choose whether to participate in the QIZ program by satisfying the sourcing rule. Calibrating the model to Egyptian data, I find that the agreement generates positive but very small welfare gains, primarily due to the small size of the industries and the small number of firms benefiting from the agreement. Lowering the Israeli input requirement increases Egyptian welfare modestly however may increase imports from Israel by inducing broader firm participation. These findings reveal a trade off in the agreement's design: stricter sourcing requirements may discourage participation and thereby reduce the very trade they are intended to promote.
+            I am on the 2026–2027 economics job market.
           </p>
-        </details>
-      </li>
-    </ul>
 
-    <!-- WORKING PAPERS -->
-    <h4 class="research-heading">Working Papers</h4>
-
-    <ul class="item-list">
-      <li>
-        <div class="item-title">
-          When Trade Agreements Become Easier to Use: Evidence from Jordan
-        </div>
-        <div class="item-sub">
-          Prepared for the Emerging Markets Review Special Issue:
-          Rethinking MENA Integration in a Fast-Changing Global Environment
-        </div>
-        <div class="item-sub">
-          <em>Draft available upon request</em>
-        </div>
-
-        <details>
-          <summary>Abstract</summary>
-          <p>
-            Trade agreements often condition preferential market access on non-tariff eligibility requirements, such as rules of origin. These requirements can limit the use of preferential agreements and hinder deeper trade integration. In this paper, I study how trade responds when exporters gain access to a less restrictive preferential trade regime. I exploit the implementation of the U.S.–Jordan Free Trade Agreement (FTA), which introduced an alternative to Jordan’s existing Qualifying Industrial Zones (QIZ) program. Both regimes ultimately provided tariff-free access to the U.S. market, but the FTA did so under less restrictive rules of origin and production-location requirements. Using product-level trade data from multiple sources, I find that the FTA’s less restrictive eligibility requirements affected trade along three margins. Exporters shifted away from the QIZ program and toward the FTA, exports to the United States increased in industries with a strong pre-existing presence in that market, and FTA liberalization induced new product entry into the U.S. market. The results suggest that reducing non-tariff barriers embedded in preferential trade agreements can deepen trade integration by encouraging the use of less restrictive preference regimes and expanding trade at both the intensive and extensive margins.
+          <p class="links">
+            <a href="mailto:atibi@mail.uni-mannheim.de">Email</a>
+            <a href="CV___Ayman_Tibi (13).pdf"
+               target="_blank" rel="noopener noreferrer">CV</a>
           </p>
-        </details>
-      </li>
-
-      <li>
-        <div class="item-title">
-          Public Investments and Conflict
         </div>
-        <div class="item-sub">
-          With Ayah Bohsali
-        </div>
-        <div class="item-sub">
-          <em>Draft available upon request</em>
-        </div>
+      </section>
 
-        <details>
-          <summary>Abstract</summary>
-          <p>
-            We study how conflict shapes how governments allocate public investments across locations and sectors. We digitize and geocode a novel dataset of capital projects allocated by Nigerian members of parliament to their localities. Using an instrumental variable strategy exploiting distance-weighted spillovers of conflict from neighboring countries, we uncover three facts regarding the relationship between conflict and public investments. First, that public investment decreases with the onset of conflict. Second, that conditional on conflict occurring, the allocation of public investments across regions is increasing in the frequency of conflict events. Third, we show that these increases are concentrated in investment in physical infrastructure. We rationalize these findings through a model where the onset of conflict decreases the returns to public investment. However, as conflict intensifies, governments have stronger incentives to use public investments as a tool to mitigate conflict. The findings highlight how conflict creates diverging incentives for public investment, shaping its allocation across regions and sectors.
-          </p>
-        </details>
-      </li>
-    </ul>
+      <!-- CONFERENCES -->
 
-    <!-- WORKS IN PROGRESS -->
-    <h4 class="research-heading">Works in Progress</h4>
+      <section id="news">
+        <h3>Recent/Upcoming Conferences and Events</h3>
 
-    <ul class="item-list">
-      <li>
-        <div class="item-title">
-          When Husbands Lose Jobs or Die: Women’s Labor Supply in Egypt
-        </div>
-        <div class="item-sub">
-          With Qinkun Yao
-        </div>
+        <ul class="item-list">
 
-        <details>
-          <summary>Abstract</summary>
-          <p>
-            We study how women in Egypt adjust their labor supply when their husbands experience a severe employment shock, comparing involuntary job loss with the death of a working husband. Employing an event-study difference-in-differences design, we find no employment response to husbands’ job loss but a sizable increase in women’s employment after widowhood, especially among poorer and less-insured households. Husbands’ attitudes toward women’s employment do not significantly affect the magnitude of these responses. The results suggest that women’s labor supply responds more strongly to permanent income losses than to temporary ones, with much of the adjustment occurring through informal employment.
-          </p>
-        </details>
-      </li>
+          <li>
+            <div class="item-title">ReCIPE Annual Conference 2027</div>
+            <div class="item-sub">Oxford, UK; March 2027</div>
+          </li>
 
-      <li>
-        <div class="item-title">
-          Spillovers of IT across Industries and Regions: Evidence from Indian Tech Parks
-        </div>
-        <div class="item-sub">
-          With Tanay Agrawal
-        </div>
+          <li>
+            <div class="item-title">2026 IMF MENA ANNUAL RESEARCH CONFERENCE</div>
+            <div class="item-sub">Rabat, Morocco; June 2026</div>
+          </li>
 
-        <details>
-          <summary>Abstract</summary>
-          <p>
-            The IT sector has become an important driver of economic growth, but its spillovers to the rest of the economy remain less understood. In this paper, we study how the expansion of the IT sector through the establishment of tech parks generates spillovers to the rest of the economy. A simple model highlights two channels: first, productivity growth in IT raises local wages and attracts workers, increasing demand for goods and services produced by other industries; second, when IT services are used as production inputs, higher IT productivity lowers their cost and raises productivity in downstream sectors. We test these mechanisms using two empirical strategies. First, exploiting the staggered introduction of Software Technology Parks of India (STPIs) across cities in a difference-in-differences framework, we show that STPIs increase the number of IT firms and workers in nearby areas and generate broader growth in manufacturing, non-tradable services, and population, consistent with a local agglomeration and demand channel. Second, combining foreign demand shocks for IT services with state-level STPI exposure, we find that manufacturing firms in more exposed states increase their use of computer and software inputs and experience substantial long-run productivity gains. Together, the results show that IT-sector growth can generate broad and persistent spillovers across sectors and regions, highlighting its role in economic development.
-          </p>
-        </details>
-      </li>
-    </ul>
+          <li>
+            <div class="item-title">Economics Seminar Presentation at GIGA</div>
+            <div class="item-sub">Hamburg, Germany; April 2026</div>
+          </li>
 
-  </section>
+          <li>
+            <div class="item-title">Industrial Policy for Africa Conference (World Bank)</div>
+            <div class="item-sub">Nairobi, Kenya; January 2026</div>
+          </li>
+
+          <li>
+            <div class="item-title">FHM+ Workshop in Development Economics</div>
+            <div class="item-sub">University of Stuttgart; October 2025</div>
+          </li>
+
+          <li>
+            <div class="item-title">YSI Workshop on Structural Change, Inequality, and Growth</div>
+            <div class="item-sub">Maastricht, Netherlands; June 2025</div>
+          </li>
+
+          <li>
+            <div class="item-title">Third BCFM PhD Conference</div>
+            <div class="item-sub">Frankfurt, Germany; June 2025</div>
+          </li>
+
+        </ul>
+      </section>
+
+      <section id="contact">
+        <h3>Contact</h3>
+        <p>
+          Email:
+          <a href="mailto:atibi@mail.uni-mannheim.de">
+            atibi@mail.uni-mannheim.de
+          </a>
+        </p>
+        <p>University of Mannheim</p>
+      </section>
+
+    </div>
+
+    <!-- RESEARCH -->
+
+    <div id="research" class="view">
+      <section>
+        <h3>Research</h3>
+
+        <!-- JOB MARKET PAPER -->
+
+        <h4 class="research-heading">Job Market Paper</h4>
+
+        <ul class="item-list job-market-list">
+          <li>
+            <div class="item-title">
+              The Economics of a Trade Policy for Peace?
+            </div>
+
+            <div class="item-sub conference-note">
+              Special Mention at IMF MENA Research Conference
+            </div>
+
+            <details>
+              <summary>Abstract</summary>
+              <p>
+                Countries may use trade agreements to promote peaceful relations among allies and advance geopolitical interests. In this paper, I study the U.S.-fostered Qualifying Industrial Zones agreement, which grants Egyptian firms in designated zones tariff-free access to the U.S. market conditional on sourcing a fixed share of inputs from Israel. Using product level trade data, firm level customs records, and industrial statistics and a diff in diffs design, I find that the agreement generated large and persistent gains in exports not only to the U.S. but also to other destinations. This expansion to other destinations is driven by and wages for exposed industries driven primarily by preferential access to the U.S. market rather than by improvements in the quality of Israeli inputs. To quantify the welfare effects of the agreement and evaluate the design of the agreement, I develop a heterogeneous-firm trade model in which firms endogenously choose whether to participate in the QIZ program by satisfying the sourcing rule. Calibrating the model to Egyptian data, I find that the agreement generates positive but very small welfare gains, primarily due to the small size of the industries and the small number of firms benefiting from the agreement. Lowering the Israeli input requirement increases Egyptian welfare modestly however may increase imports from Israel by inducing broader firm participation. These findings reveal a trade off in the agreement's design: stricter sourcing requirements may discourage participation and thereby reduce the very trade they are intended to promote.
+              </p>
+            </details>
+          </li>
+        </ul>
+
+        <!-- WORKING PAPERS -->
+
+        <h4 class="research-heading">Working Papers</h4>
+
+        <ul class="item-list">
+
+          <li>
+            <div class="item-title">
+              When Trade Agreements Become Easier to Use: Evidence from Jordan
+            </div>
+
+            <div class="item-sub">
+              Prepared for the Emerging Markets Review Special Issue:
+              Rethinking MENA Integration in a Fast-Changing Global Environment
+            </div>
+
+            <div class="item-sub draft-note">
+              Draft available upon request
+            </div>
+
+            <details>
+              <summary>Abstract</summary>
+              <p>
+                Trade agreements often condition preferential market access on non-tariff eligibility requirements, such as rules of origin. These requirements can limit the use of preferential agreements and hinder deeper trade integration. In this paper, I study how trade responds when exporters gain access to a less restrictive preferential trade regime. I exploit the implementation of the U.S.–Jordan Free Trade Agreement (FTA), which introduced an alternative to Jordan’s existing Qualifying Industrial Zones (QIZ) program. Both regimes ultimately provided tariff-free access to the U.S. market, but the FTA did so under less restrictive rules of origin and production-location requirements. Using product-level trade data from multiple sources, I find that the FTA’s less restrictive eligibility requirements affected trade along three margins. Exporters shifted away from the QIZ program and toward the FTA, exports to the United States increased in industries with a strong pre-existing presence in that market, and FTA liberalization induced new product entry into the U.S. market. The results suggest that reducing non-tariff barriers embedded in preferential trade agreements can deepen trade integration by encouraging the use of less restrictive preference regimes and expanding trade at both the intensive and extensive margins.
+              </p>
+            </details>
+          </li>
+
+          <li>
+            <div class="item-title">
+              Public Investments and Conflict
+            </div>
+
+            <div class="item-sub">
+              With Ayah Bohsali
+            </div>
+
+            <div class="item-sub draft-note">
+              Draft available upon request
+            </div>
+
+            <details>
+              <summary>Abstract</summary>
+              <p>
+                We study how conflict shapes how governments allocate public investments across locations and sectors. We digitize and geocode a novel dataset of capital projects allocated by Nigerian members of parliament to their localities. Using an instrumental variable strategy exploiting distance-weighted spillovers of conflict from neighboring countries, we uncover three facts regarding the relationship between conflict and public investments. First, that public investment decreases with the onset of conflict. Second, that conditional on conflict occurring, the allocation of public investments across regions is increasing in the frequency of conflict events. Third, we show that these increases are concentrated in investment in physical infrastructure. We rationalize these findings through a model where the onset of conflict decreases the returns to public investment. However, as conflict intensifies, governments have stronger incentives to use public investments as a tool to mitigate conflict. The findings highlight how conflict creates diverging incentives for public investment, shaping its allocation across regions and sectors.
+              </p>
+            </details>
+          </li>
+
+        </ul>
+
+        <!-- WORKS IN PROGRESS -->
+
+        <h4 class="research-heading">Works in Progress</h4>
+
+        <ul class="item-list">
+
+          <li>
+            <div class="item-title">
+              When Husbands Lose Jobs or Die: Women’s Labor Supply in Egypt
+            </div>
+
+            <div class="item-sub">
+              With Qinkun Yao
+            </div>
+
+            <details>
+              <summary>Abstract</summary>
+              <p>
+                We study how women in Egypt adjust their labor supply when their husbands experience a severe employment shock, comparing involuntary job loss with the death of a working husband. Employing an event-study difference-in-differences design, we find no employment response to husbands’ job loss but a sizable increase in women’s employment after widowhood, especially among poorer and less-insured households. Husbands’ attitudes toward women’s employment do not significantly affect the magnitude of these responses. The results suggest that women’s labor supply responds more strongly to permanent income losses than to temporary ones, with much of the adjustment occurring through informal employment.
+              </p>
+            </details>
+          </li>
+
+          <li>
+            <div class="item-title">
+              Spillovers of IT across Industries and Regions: Evidence from Indian Tech Parks
+            </div>
+
+            <div class="item-sub">
+              With Tanay Agrawal
+            </div>
+
+            <details>
+              <summary>Abstract</summary>
+              <p>
+                The IT sector has become an important driver of economic growth, but its spillovers to the rest of the economy remain less understood. In this paper, we study how the expansion of the IT sector through the establishment of tech parks generates spillovers to the rest of the economy. A simple model highlights two channels: first, productivity growth in IT raises local wages and attracts workers, increasing demand for goods and services produced by other industries; second, when IT services are used as production inputs, higher IT productivity lowers their cost and raises productivity in downstream sectors. We test these mechanisms using two empirical strategies. First, exploiting the staggered introduction of Software Technology Parks of India (STPIs) across cities in a difference-in-differences framework, we show that STPIs increase the number of IT firms and workers in nearby areas and generate broader growth in manufacturing, non-tradable services, and population, consistent with a local agglomeration and demand channel. Second, combining foreign demand shocks for IT services with state-level STPI exposure, we find that manufacturing firms in more exposed states increase their use of computer and software inputs and experience substantial long-run productivity gains. Together, the results show that IT-sector growth can generate broad and persistent spillovers across sectors and regions, highlighting its role in economic development.
+              </p>
+            </details>
+          </li>
+
+          <li>
+            <div class="item-title">
+              Physical Capital Shocks: Evidence from Dismantling of German Firms after WWII
+            </div>
+
+            <div class="item-sub">
+              With Jochen Streb
+            </div>
+          </li>
+
+        </ul>
+
+      </section>
+    </div>
+
+    <!-- TEACHING -->
+
+    <div id="teaching" class="view">
+      <section>
+        <h3>Teaching</h3>
+
+        <ul class="item-list">
+
+          <li>
+            <div class="item-title">
+              Teaching Assistant, Advanced Microeconomics (Master Level)
+            </div>
+            <div class="item-sub">
+              University of Mannheim, [2023, 2024, 2025, 2026]
+            </div>
+          </li>
+
+          <li>
+            <div class="item-title">
+              Grading Assistant, Leadership and Motivation (Master Level Business Course)
+            </div>
+            <div class="item-sub">
+              University of Mannheim, 2025
+            </div>
+          </li>
+
+        </ul>
+      </section>
+    </div>
+
+    <!-- DATA AND WRITINGS -->
+
+    <div id="data" class="view">
+      <section>
+        <h3>Data and Code</h3>
+
+        <ul class="item-list">
+          <li>
+            <div class="item-title">
+              <a href="#">
+                Newly Digitized Data on Egypt’s Manufacturing Sectors by Region (2002–2021)
+              </a>
+            </div>
+
+            <div class="item-sub">
+              Coming soon: a publicly available dataset on Egypt’s manufacturing sector, at the 2- or 4-digit level, by governorate and year. Variables include the number of employees by gender, number of firms, wages, production, revenue, and value added.
+            </div>
+          </li>
+        </ul>
+
+        <h3>Other Writings</h3>
+
+        <ul class="item-list">
+
+          <li>
+            <div class="item-title">
+              <a href="https://180post.com/archives/46278"
+                 target="_blank" rel="noopener">
+                The Ignored High Cost of Development in the Arab World (in Arabic)
+              </a>
+            </div>
+            <div class="item-sub">180 Post, 2024</div>
+          </li>
+
+          <li>
+            <div class="item-title">
+              <a href="https://180post.com/archives/46531"
+                 target="_blank" rel="noopener">
+                What can Lebanon Learn from Romania's IT Sector? (in Arabic)
+              </a>
+            </div>
+            <div class="item-sub">180 Post, 2024</div>
+          </li>
+
+        </ul>
+      </section>
+    </div>
+
+    <!-- CV -->
+
+    <div id="cv" class="view">
+      <section>
+        <h3>CV</h3>
+
+        <p>
+          You can download my
+          <a href="CV___Ayman_Tibi (13).pdf"
+             target="_blank" rel="noopener">
+            curriculum vitae here
+          </a>.
+        </p>
+      </section>
+    </div>
+
+  </main>
+
+  <footer>
+    © Ayman Tibi
+  </footer>
+
 </div>
-      <div id="teaching" class="view">
-        <section>
-          <h3>Teaching</h3>
 
-          <ul class="item-list">
-            <li>
-              <div class="item-title">Teaching Assistant, Advanced Microeconomics (Master Level)</div>
-              <div class="item-sub">University of Mannheim, [2023, 2024, 2025, 2026]</div>
-            </li>
+<script>
+  function showView(viewId) {
+    const views = document.querySelectorAll('.view');
+    views.forEach(view => view.classList.remove('active'));
 
-            <li>
-              <div class="item-title">Grading Assistant, Leadership and Motivation (Master Level Business Course)</div>
-              <div class="item-sub">University of Mannheim, 2025</div>
-            </li>
-          </ul>
-        </section>
-      </div>
-
-      <div id="data" class="view">
-        <section>
-          <h3>Data and Code</h3>
-
-          <ul class="item-list">
-            <li>
-              <div class="item-title">
-                <a href="#">Newly Digitized Data on Egypt’s Manufacturing Sectors by Region (2002–2021)</a>
-              </div>
-
-              <div class="item-sub">
-                Coming soon: a publicly available dataset on Egypt’s manufacturing sector, at the 2- or 4-digit level, by governorate and year. Variables include the number of employees by gender, number of firms, wages, production, revenue, and value added.
-              </div>
-            </li>
-          </ul>
-
-          <h3>Other Writings</h3>
-
-          <ul class="item-list">
-            <li>
-              <div class="item-title">
-                <a href="https://180post.com/archives/46278" target="_blank" rel="noopener">
-                  The Ignored High Cost of Development in the Arab World (in Arabic)
-                </a>
-              </div>
-
-              <div class="item-sub">180 Post, 2024</div>
-            </li>
-
-            <li>
-              <div class="item-title">
-                <a href="https://180post.com/archives/46531" target="_blank" rel="noopener">
-                  What can Lebanon Learn from Romania's IT Sector? (in Arabic)
-                </a>
-              </div>
-
-              <div class="item-sub">180 Post, 2024</div>
-            </li>
-          </ul>
-        </section>
-      </div>
-
-      <div id="cv" class="view">
-        <section>
-          <h3>CV</h3>
-
-          <p>
-            You can download my
-            <a href="CV___Ayman_Tibi (13).pdf" target="_blank" rel="noopener">curriculum vitae here</a>.
-          </p>
-        </section>
-      </div>
-    </main>
-
-    <footer>
-      © Ayman Tibi
-    </footer>
-  </div>
-
-  <script>
-    function showView(viewId) {
-      const views = document.querySelectorAll('.view');
-      views.forEach(view => view.classList.remove('active'));
-
-      const target = document.getElementById(viewId);
-      if (target) {
-        target.classList.add('active');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
+    const target = document.getElementById(viewId);
+    if (target) {
+      target.classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
-  </script>
+  }
+</script>
+
 </body>
 </html>
